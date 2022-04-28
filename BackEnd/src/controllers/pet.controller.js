@@ -32,3 +32,5 @@ const petController = {
     return User.findOne({ id });
   },
 };
+
+module.exports = petController;
