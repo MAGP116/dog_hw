@@ -18,6 +18,9 @@ const petSchema = new mongoose.Schema({
   },
   size:{
       type: 'string'
+  },
+  id:{
+      type: 'int'
   }
 });
 
