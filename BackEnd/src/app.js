@@ -1,22 +1,20 @@
 const express = require('express');
 const path = require('path');
-const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
 require('dotenv').config();
-
-const {NotFoundError} = require('./utils/errors');
 require('./config/db');
 
+
+const pethRoute = require('./routes/pets.route'); 
+
 const app = express();
-const swaggerDocument = YAML.load('src/docs/swagger.yaml');
 
 app.use(express.json());
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/template-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.get('/', (req, res) => {
   res.send('Hello World!!!');
 });
+
+app.use('/pets',pethRoute);
 
 app.use((err, req, res, next) => {
   console.log('Error', err);
