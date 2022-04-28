@@ -20,10 +20,10 @@ const petSchema = new mongoose.Schema({
       type: 'string'
   },
   id:{
-      type: 'int'
+      type: 'number'
   }
 });
 
 const Pet = mongoose.model('Pets', petSchema);
 
-model.exports = Pet;
+module.exports = Pet;
